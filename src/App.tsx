@@ -1,12 +1,15 @@
 import Txt from "./components/Txt";
-import Ratio from "./components/Ratio";
 import Picture from "./components/Picture";
+import { Provider } from "react-redux";
+import store from "./store";
 import 'antd/dist/antd.min.css';
 function App() {
   return (
     <div >
-      <Txt />
-      <Picture />
+      <Provider store={store}>
+        <Txt />
+      </Provider>
+
     </div>
   );
 }
