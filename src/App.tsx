@@ -8,6 +8,7 @@ function App() {
     <div >
       <Provider store={store}>
         <Txt />
+        <Picture></Picture>
       </Provider>
 
     </div>

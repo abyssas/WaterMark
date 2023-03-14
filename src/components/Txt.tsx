@@ -24,8 +24,9 @@ class Txt extends React.Component<any, any> {
         super(props);
         this.state = { txt: '', ratio: '' }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
     handleChange(e: any) {
         const target = e.target
         const name = target.name
@@ -33,36 +34,32 @@ class Txt extends React.Component<any, any> {
         // console.log(this.state)
     }
 
-    handleSubmit(e: any) {
-        e.preventDefault();
-        console.log(this.state)
-    }
-
-    // Click = () => {
-    //     this.props.sendAction(this.state.txt)
-    //     console.log('click', store.getState())
-    // }
-
     componentDidMount(): void {
+        const range = document.getElementById("range") as any
+        range.value = "0"
         store.subscribe(() => {
             console.log('subs:', store.getState())
         })
     }
 
+    onclick() {
+        const range = document.getElementById("range") as any
+        console.log(range.value)
+    }
+
     render() {
         return (
-            <div>
-                <span className="txt">请输入您想要添加的水印文字:</span><br />
-                <input className="input" type='text' name='txt' onChange={this.handleChange} />
-                <br />
-                <span className="txt">请输入您想要添加的水印比例:</span><br />
-                <input className="input" type='text' name='ratio' onChange={this.handleChange} /><br />
-                <button type="button" onClick={this.handleSubmit} >提交</button>
-                {/* <button type="button" onClick={this.Click} >提交</button> */}
-                <Picture></Picture>
-
-                {/* <canvas style={{ width: 650, height: 320, backgroundColor: "black" }} /> */}
+            <div className="outBox">
+                <div className="box">
+                    <span className="txt">水印文字:</span><br />
+                    <input className="input" type='text' name='txt' onChange={this.handleChange} placeholder={"仅供支付宝xxx实名认证使用，他用无效"} />
+                    <br />
+                    <span className="txt">请输入您想要添加的水印比例:</span><br />
+                    {/* <input className="input" type='text' onChange={this.handleChange} /><br /> */}
+                    <input id="range" type="range" min="0" max="1" step="0.1" name='ratio' onChange={this.handleChange} />
+                </div>
             </div>
+
         )
     }
 }

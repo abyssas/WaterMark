@@ -1,0 +1,54 @@
+// #picture {
+//     position: relative;
+//     top: -10vh;
+//     left: 25vw;
+// }
+
+
+label {
+    position: relative;
+    display: flex;
+    top: -15vh;
+    justify-content: center;
+
+    #up {
+        margin: auto;
+        width: 500px;
+        text-align: center;
+    }
+
+    #picture {
+        width: 80px;
+        margin: auto;
+        transform: translate(-100%);
+        opacity: 0;
+    }
+
+    #btn {
+        margin: auto;
+        top: -5vh;
+    }
+
+    #upload {
+        text-align: left;
+        margin: auto;
+        width: 500px;
+        right: 10px;
+        top: -5vh;
+    }
+
+}
+
+
+
+
+
+.cvsbox {
+    width: 1500px;
+
+    #cvs {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
